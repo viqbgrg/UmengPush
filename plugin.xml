@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-umengpush" version="0.0.1" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>UmengPush</name>
+    <js-module name="UmengPush" src="www/UmengPush.js">
+        <clobbers target="cordova.plugins.umengpush" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="UmengPush">
+                <param name="android-package" value="cordova.plugin.umengpush.UmengPush" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest"> 
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>  
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>  
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>  
+            <uses-permission android:name="android.permission.INTERNET"/>  
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>  
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>  
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>  
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> 
+        </config-file>
+        <edit-config file="AndroidManifest.xml" target="/manifest/application" mode="merge">
+            <application android:name="cordova.plugin.umengpush.App" />
+        </edit-config>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application" mode="merge">
+            <meta-data android:name="UM_APPKEY" android:value="$UM_APPKEY" />
+            <meta-data android:name="UM_MESSAGE_SECRET" android:value="$UM_MESSAGE_SECRET" />
+            <meta-data android:name="UM_XIAOMI_ID" android:value="$UM_XIAOMI_ID" />
+            <meta-data android:name="UM_XIAOMI_KEY" android:value="$UM_XIAOMI_KEY" />
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+        <source-file src="src/android/UmengPush.java" target-dir="src/cordova/plugin/umengpush" />     
+        <source-file src="src/android/App.java" target-dir="src/cordova/plugin/umengpush" />    
+        <source-file src="src/android/PGCommonSDK.java" target-dir="src/cordova/plugin/umengpush" />        
+        <lib-file src="src/android/umeng-common-1.5.4.jar" target="libs" />          
+        <lib-file src="src/android/push-release.aar" target="libs" />  
+        <lib-file src="src/android/utdid4all-1.1.5.3_proguard.jar" target="libs" />
+        <framework custom="true" src="src/android/umengpush.gradle" type="gradleReference" />  
+    </platform>
+</plugin>
