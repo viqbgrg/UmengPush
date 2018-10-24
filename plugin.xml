@@ -34,8 +34,8 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application" mode="merge">
             <meta-data android:name="UM_APPKEY" android:value="$UM_APPKEY" />
             <meta-data android:name="UM_MESSAGE_SECRET" android:value="$UM_MESSAGE_SECRET" />
-            <meta-data android:name="UM_XIAOMI_ID" android:value="$UM_XIAOMI_ID" />
-            <meta-data android:name="UM_XIAOMI_KEY" android:value="$UM_XIAOMI_KEY" />
+            <meta-data android:name="UM_XIAOMI_ID" android:value="\$UM_XIAOMI_ID" />
+            <meta-data android:name="UM_XIAOMI_KEY" android:value="\$UM_XIAOMI_KEY" />
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
         <source-file src="src/android/UmengPush.java" target-dir="src/cordova/plugin/umengpush" />     
