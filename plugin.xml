@@ -46,4 +46,22 @@
         <lib-file src="src/android/utdid4all-1.1.5.3_proguard.jar" target="libs" />
         <framework custom="true" src="src/android/umengpush.gradle" type="gradleReference" />  
     </platform>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="UmengPush">
+                <param name="ios-package" value="cordova.plugin.umengpush.UmengPush" onload="true" />
+            </feature>
+        </config-file>
+        
+        <header-file src="src/ios/UMCommonModule.h" />
+        <source-file src="src/ios/UMCommonModule.m" />
+        
+        <header-file src="src/ios/UMPushModule.h" />
+        <source-file src="src/ios/UMPushModule.m" />
+        
+<!--        <framework src="UMCommon.framework" />-->
+<!--        <framework src="UMPush.framework"/>-->
+<!--        <framework src="UserNotifications.framework" />-->
+        
+    </platform>
 </plugin>
