@@ -49,7 +49,7 @@
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="UmengPush">
-                <param name="ios-package" value="cordova.plugin.umengpush.UmengPush" onload="true" />
+                <param name="ios-package" value="cordova.plugin.umengpush.UMPushModule" onload="true" />
             </feature>
         </config-file>
         
